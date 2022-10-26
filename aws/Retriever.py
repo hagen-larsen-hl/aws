@@ -1,5 +1,8 @@
 import boto3
 from widget.WidgetRequestFactory import WidgetRequestFactory
+import logging
+
+logger = logging.getLogger("consumer")
 
 class S3Retriever:
     def __init__(self, bucket_name):
@@ -11,5 +14,6 @@ class S3Retriever:
         for obj in objects:
             factory = WidgetRequestFactory()
             request = factory.fromJson(obj.get()['Body'].read().decode('utf-8'))
+            logger.info("Deleting object from S3")
             obj.delete()
             return request
