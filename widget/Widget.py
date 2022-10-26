@@ -11,3 +11,14 @@ class Widget:
 
     def toJson(self):
         return json.dumps(self.__dict__, cls=CustomJSONEncoder)
+
+    def toDynamoDBItem(self):
+        item = {
+            'id': {'S': self.id},
+            'owner': {'S': self.owner},
+            'label': {'S': self.label},
+            'description': {'S': self.description}
+        }
+        for attribute in self.otherAttributes:
+            item[attribute.name] = {'S': attribute.value}
+        return item

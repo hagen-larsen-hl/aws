@@ -21,10 +21,16 @@ class S3Processor:
 
 class DynamoDBProcessor:
     def __init__(self, table_name):
-        self.client = boto3.client('dynamodb')
+        self.client = boto3.client('dynamodb', region_name='us-east-1')
         self.table_name = table_name
+
+    def process(self, request):
+        if request.type == 'create':
+            self.processCreate(request)
     
     def processCreate(self, request):
+        widget = WidgetFactory().createWidget(request)
+        self.client.put_item(TableName=self.table_name, Item=widget.toDynamoDBItem())
         pass
 
     def processUpdate(self, request):
