@@ -1,11 +1,15 @@
-class Widget:
+import json
+from widget.CustomJSONEncoder import CustomJSONEncoder
 
-    def __init__(self, owner, label, description):
-        self.attributes = []
-        self.id = id(self)
+class Widget:
+    def __init__(self, id, owner, label, description, attributes):
+        self.id = id
         self.owner = owner
         self.label = label
         self.description = description
+        self.otherAttributes = attributes
 
-    def addAttribute(self, attribute):
-        self.attributes.append(attribute)
+    def toJson(self):
+        res = json.dumps(self.__dict__, cls=CustomJSONEncoder)
+        print(json.loads(res))
+        return res

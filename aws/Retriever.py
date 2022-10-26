@@ -1,5 +1,5 @@
-from curses import BUTTON1_CLICKED
 import boto3
+from widget.WidgetRequestFactory import WidgetRequestFactory
 
 class S3Retriever:
     def __init__(self, bucket_name):
@@ -9,4 +9,7 @@ class S3Retriever:
     def retrieve(self):
         objects = self.bucket.objects.limit(count=1)
         for obj in objects:
-            return obj
+            factory = WidgetRequestFactory()
+            request = factory.fromJson(obj.get()['Body'].read().decode('utf-8'))
+            obj.delete()
+            return request
