@@ -12,7 +12,7 @@ class S3Processor:
             self.processCreate(request)
     
     def processCreate(self, request):
-        key = (request.owner.replace(' ', '-') + '/' + request.widgetId).lower()
+        key = "widgets/" + (request.owner.replace(' ', '-') + '/' + request.widgetId).lower()
         widget = WidgetFactory().createWidget(request)
         self.client.put_object(Body=widget.toJson(), Bucket=self.bucket_name, Key=key)
 

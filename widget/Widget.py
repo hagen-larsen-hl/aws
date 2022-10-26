@@ -10,6 +10,4 @@ class Widget:
         self.otherAttributes = attributes
 
     def toJson(self):
-        res = json.dumps(self.__dict__, cls=CustomJSONEncoder)
-        print(json.loads(res))
-        return res
+        return json.dumps(self.__dict__, cls=CustomJSONEncoder)
