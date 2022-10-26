@@ -1,21 +1,21 @@
 import json
 
 class Request:
-    def toJson(self):
-        return json.dumps(self.__dict__)
+    def __init__(self, requestId, widgetId, owner):
+        self.requestId = requestId
+        self.widgetId = widgetId
+        self.owner = owner
 
-    def fromJson(self, jsonStr):
-        self.__dict__ = json.loads(jsonStr)
+    def execute(self):
+        pass
 
 class CreateRequest(Request):
-    def __init__(self, widget, owner, label, description):
-        self.widget = widget
-        self.owner = owner
+    def __init__(self, requestId, widgetId, owner, label, description):
+        self.type = 'create'
+        super().__init__(requestId, widgetId, owner)
         self.label = label
         self.description = description
 
+    
 class UpdateRequest(Request):
-    def __init__(self, widget, label, description):
-        self.widget = widget
-        self.label = label
-        self.description = description
+    pass
