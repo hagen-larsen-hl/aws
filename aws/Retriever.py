@@ -7,5 +7,6 @@ class S3Retriever:
         self.bucket = self.s3.Bucket(bucket_name)
     
     def retrieve(self):
-        objects = self.bucket.objects.all()
-        print(objects)
+        objects = self.bucket.objects.limit(count=1)
+        for obj in objects:
+            return obj
