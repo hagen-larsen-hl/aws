@@ -16,7 +16,3 @@ class WidgetRequestFactory:
                 return CreateRequest(request['requestId'], request['widgetId'], request['owner'], request['label'], request['description'], request['otherAttributes'])
             else:
                 return CreateRequest(request['requestId'], request['widgetId'], request['owner'], request['label'], request['description'])
-        elif request['type'] == 'update':
-            logger.warn("Received update request, but not implemented yet.")
-        elif request['type'] == 'delete':
-            logger.warn("Received delete request, but not implemented yet.")

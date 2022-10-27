@@ -14,13 +14,7 @@ class S3Processor:
         if request.type == 'create':
             logger.info("Processing create request with S3")
             self.processCreate(request)
-
-        elif request.type == 'update':
-            logger.warn("Received update request, but not implemented yet.")
-
-        elif request.type == 'delete':
-            logger.warn("Received delete request, but not implemented yet.")
-    
+            
     def processCreate(self, request):
         key = "widgets/" + (request.owner.replace(' ', '-') + '/' + request.widgetId).lower()
         widget = WidgetFactory().createWidget(request)
@@ -40,12 +34,6 @@ class DynamoDBProcessor:
         if request.type == 'create':
             logger.info("Processing create request with DynamoDB")
             self.processCreate(request)
-
-        elif request.type == 'update':
-            logger.warn("Received update request, but not implemented yet.")
-        
-        elif request.type == 'delete':
-            logger.warn("Received delete request, but not implemented yet.")
     
     def processCreate(self, request):
         widget = WidgetFactory().createWidget(request)

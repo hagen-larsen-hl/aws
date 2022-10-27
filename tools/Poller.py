@@ -5,7 +5,6 @@ logging.basicConfig(filename="consumer.log",format="%(asctime)s : %(message)s", 
 logger = logging.getLogger("consumer")
 
 class Poller:
-
     def __init__(self, retriever, processor):
         self.retriever = retriever
         self.processor = processor
