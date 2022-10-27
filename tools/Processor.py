@@ -27,6 +27,9 @@ class S3Processor:
         self.client.put_object(Body=widget.toJson(), Bucket=self.bucket_name, Key=key)
         logger.info("Widget successfully created in S3")
 
+    def close(self):
+        self.client.close()
+
 
 class DynamoDBProcessor:
     def __init__(self, table_name):

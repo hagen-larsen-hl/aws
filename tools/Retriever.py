@@ -17,3 +17,6 @@ class S3Retriever:
             logger.info("Deleting object from S3")
             obj.delete()
             return request
+
+    def close(self):
+        pass
