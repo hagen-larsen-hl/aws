@@ -1,0 +1,72 @@
+2022-10-26 21:00:50,883 : Found credentials in shared credentials file: ~/.aws/credentials
+2022-10-26 21:00:50,940 : Start polling...
+2022-10-26 21:00:51,377 : Deleting object from S3
+2022-10-26 21:00:51,453 : Request received!
+2022-10-26 21:00:51,454 : Processing create request with S3
+2022-10-26 21:00:51,805 : Widget successfully created in S3
+2022-10-26 21:00:51,972 : Deleting object from S3
+2022-10-26 21:00:52,052 : No request available. Waiting...
+2022-10-26 21:00:54,288 : Deleting object from S3
+2022-10-26 21:00:54,383 : No request available. Waiting...
+2022-10-26 21:00:56,576 : Deleting object from S3
+2022-10-26 21:00:56,655 : No request available. Waiting...
+2022-10-26 21:00:58,834 : Deleting object from S3
+2022-10-26 21:00:58,913 : Request received!
+2022-10-26 21:00:58,913 : Processing create request with S3
+2022-10-26 21:00:59,254 : Widget successfully created in S3
+2022-10-26 21:00:59,450 : Deleting object from S3
+2022-10-26 21:00:59,531 : No request available. Waiting...
+2022-10-26 21:01:01,712 : Deleting object from S3
+2022-10-26 21:01:01,790 : No request available. Waiting...
+2022-10-26 21:01:03,978 : Deleting object from S3
+2022-10-26 21:01:04,069 : Request received!
+2022-10-26 21:01:04,069 : Processing create request with S3
+2022-10-26 21:01:04,221 : Widget successfully created in S3
+2022-10-26 21:01:04,418 : Deleting object from S3
+2022-10-26 21:01:04,492 : Request received!
+2022-10-26 21:01:04,493 : Processing create request with S3
+2022-10-26 21:01:04,658 : Widget successfully created in S3
+2022-10-26 21:01:04,877 : Deleting object from S3
+2022-10-26 21:01:04,955 : No request available. Waiting...
+2022-10-26 21:01:07,200 : Deleting object from S3
+2022-10-26 21:01:07,392 : No request available. Waiting...
+2022-10-26 21:01:09,578 : Deleting object from S3
+2022-10-26 21:01:09,663 : No request available. Waiting...
+2022-10-26 21:01:11,916 : Deleting object from S3
+2022-10-26 21:01:12,000 : Request received!
+2022-10-26 21:01:12,001 : Processing create request with S3
+2022-10-26 21:01:12,395 : Widget successfully created in S3
+2022-10-26 21:01:12,574 : Deleting object from S3
+2022-10-26 21:01:12,653 : No request available. Waiting...
+2022-10-26 21:01:14,846 : Deleting object from S3
+2022-10-26 21:01:14,924 : Request received!
+2022-10-26 21:01:14,924 : Processing create request with S3
+2022-10-26 21:01:15,075 : Widget successfully created in S3
+2022-10-26 21:01:15,259 : Deleting object from S3
+2022-10-26 21:01:15,339 : No request available. Waiting...
+2022-10-26 21:01:17,520 : Deleting object from S3
+2022-10-26 21:01:17,596 : Request received!
+2022-10-26 21:01:17,596 : Processing create request with S3
+2022-10-26 21:01:17,763 : Widget successfully created in S3
+2022-10-26 21:01:17,960 : Deleting object from S3
+2022-10-26 21:01:18,042 : No request available. Waiting...
+2022-10-26 21:01:20,237 : Deleting object from S3
+2022-10-26 21:01:20,315 : Request received!
+2022-10-26 21:01:20,315 : Processing create request with S3
+2022-10-26 21:01:20,461 : Widget successfully created in S3
+2022-10-26 21:01:20,650 : Deleting object from S3
+2022-10-26 21:01:20,727 : Request received!
+2022-10-26 21:01:20,727 : Processing create request with S3
+2022-10-26 21:01:20,877 : Widget successfully created in S3
+2022-10-26 21:01:21,063 : Deleting object from S3
+2022-10-26 21:01:21,144 : Request received!
+2022-10-26 21:01:21,144 : Processing create request with S3
+2022-10-26 21:01:21,290 : Widget successfully created in S3
+2022-10-26 21:01:21,479 : Deleting object from S3
+2022-10-26 21:01:21,559 : Request received!
+2022-10-26 21:01:21,560 : Processing create request with S3
+2022-10-26 21:01:21,708 : Widget successfully created in S3
+2022-10-26 21:01:21,890 : Deleting object from S3
+2022-10-26 21:01:21,972 : No request available. Waiting...
+2022-10-26 21:01:24,177 : Deleting object from S3
+2022-10-26 21:01:24,262 : No request available. Waiting...
