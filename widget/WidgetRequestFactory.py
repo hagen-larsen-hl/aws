@@ -1,6 +1,5 @@
-import json
+import json, logging
 from widget.Request import CreateRequest
-import logging
 
 logger = logging.getLogger("consumer")
 

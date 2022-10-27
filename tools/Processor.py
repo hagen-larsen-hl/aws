@@ -1,11 +1,13 @@
-import boto3
-import logging
+import boto3, logging
 from widget.WidgetFactory import WidgetFactory
-import logging
 
 logger = logging.getLogger("consumer")
 
-class S3Processor:
+class Processor:
+    def process(self):
+        pass
+
+class S3Processor(Processor):
     def __init__(self, bucket_name):
         self.client = boto3.client('s3')
         self.bucket_name = bucket_name
@@ -25,7 +27,7 @@ class S3Processor:
         self.client.close()
 
 
-class DynamoDBProcessor:
+class DynamoDBProcessor(Processor):
     def __init__(self, table_name):
         self.client = boto3.client('dynamodb', region_name='us-east-1')
         self.table_name = table_name

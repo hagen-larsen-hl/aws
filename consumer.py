@@ -1,7 +1,6 @@
 import sys
 from tools import Retriever, Processor, Poller
 
-
 def main(args):
     if len(args) == 1:
         raise Exception('Use arguments --help or -h to see usage.')

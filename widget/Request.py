@@ -10,8 +10,6 @@ class Request:
     def toJson(self):
         return json.dumps(self.__dict__)
 
-    def execute(self):
-        pass
 
 class CreateRequest(Request):
     def __init__(self, requestId, widgetId, owner, label, description, otherAttributes=[]):

@@ -1,6 +1,5 @@
-import boto3
+import boto3, logging
 from widget.WidgetRequestFactory import WidgetRequestFactory
-import logging
 
 logger = logging.getLogger("consumer")
 

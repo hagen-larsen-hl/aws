@@ -1,5 +1,5 @@
-from widget.Widget import Widget
 import logging
+from widget.Widget import Widget
 
 logger = logging.getLogger("consumer")
 
