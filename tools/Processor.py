@@ -16,12 +16,21 @@ class S3Processor(Processor):
         if request.type == 'create':
             logger.info("Processing create request with S3")
             self.processCreate(request)
+        elif request.type == 'update':
+            logger.info("Processing update request with S3")
+            self.processUpdate(request)
+        elif request.type == 'delete':
+            logger.info("Processing delete request with S3")
+            self.processDelete(request)
             
     def processCreate(self, request):
         key = "widgets/" + (request.owner.replace(' ', '-') + '/' + request.widgetId).lower()
         widget = WidgetFactory().createWidget(request)
         self.client.put_object(Body=widget.toJson(), Bucket=self.bucket_name, Key=key)
         logger.info("Widget successfully created in S3")
+
+    def processUpdate(self, request):
+        pass
 
     def close(self):
         self.client.close()
