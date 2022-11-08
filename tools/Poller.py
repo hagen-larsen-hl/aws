@@ -12,17 +12,17 @@ class Poller:
 
     def poll(self, timeout=None):
         waitCount = 0
-        logger.info("Start polling...")
+        logger.info("Starting polling...")
         if timeout is None:
             timeout = self.timeout
         while waitCount < 5:
             request = self.retriever.retrieve()
             if request is not None:
                 waitCount = 0
-                logger.info("Request received!")
                 self.processor.process(request)
+                print("request " + request.requestId + " processed")
             else:
-                logger.info("No request available. Waiting...")
+                logger.info("no request available - waiting...")
                 waitCount += 1
                 time.sleep(timeout)
     
