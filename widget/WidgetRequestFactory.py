@@ -1,5 +1,6 @@
 import json, logging
-from widget.Request import CreateRequest
+from widget.Request import CreateRequest, UpdateRequest
+import sys
 
 logger = logging.getLogger("consumer")
 
@@ -15,3 +16,6 @@ class WidgetRequestFactory:
                 return CreateRequest(request['requestId'], request['widgetId'], request['owner'], request['label'], request['description'], request['otherAttributes'])
             else:
                 return CreateRequest(request['requestId'], request['widgetId'], request['owner'], request['label'], request['description'])
+        
+        elif request['type'] == 'update':
+            return UpdateRequest(request)

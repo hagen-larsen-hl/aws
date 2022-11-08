@@ -25,17 +25,20 @@ class S3Retriever(Retriever):
         pass
 
 class SQSRetriever(Retriever):
-    def __init__(self, queue_name):
-        self.sqs = boto3.resource('sqs', region_name='us-east-1')
-        self.queue = self.sqs.get_queue_by_name(QueueName=queue_name)
+    def __init__(self, url):
+        self.client = boto3.client('sqs')
+        self.url = url
+        self.cache = []
     
     def retrieve(self):
-        messages = self.queue.receive_messages(MaxNumberOfMessages=1)
-        for message in messages:
+        messages = self.client.receive_message(QueueUrl=self.url, MaxNumberOfMessages=10)
+        self.cache.append(messages['Messages'])
+        if len(self.cache) > 0:
+            message = self.cache.pop(0)
             factory = WidgetRequestFactory()
-            request = factory.fromJson(message.body)
+            request = factory.fromJson(message['Body'])
             logger.info("Deleting message from SQS")
-            message.delete()
+            self.client.delete_message(QueueUrl=self.url, ReceiptHandle=message['ReceiptHandle'])
             return request
 
     def close(self):
