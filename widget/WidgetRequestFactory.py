@@ -1,5 +1,5 @@
 import json, logging
-from widget.Request import CreateRequest, UpdateRequest
+from widget.Request import CreateRequest, UpdateRequest, DeleteRequest
 
 
 logger = logging.getLogger("consumer")
@@ -19,3 +19,6 @@ class WidgetRequestFactory:
         
         elif request['type'] == 'update':
             return UpdateRequest(request)
+
+        elif request['type'] == 'delete':
+            return DeleteRequest(request['requestId'], request['widgetId'], request['owner'])

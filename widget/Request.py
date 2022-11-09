@@ -40,18 +40,8 @@ class UpdateRequest(Request):
 
         self.updates = updates
 
-        """
-        {
-            'label': 'WWNQNT', 
-            'description': 'TKTNLMYTTNGMZOYSADHNPLHRHOKADAFXECCLDXLGTENAOYSMYDMVBB', 
-            'otherAttributes': [
-                {'name': 'color', 'value': 'blue'}, 
-                {'name': 'height', 'value': '784'}, 
-                {'name': 'width', 'value': '717'}, 
-                {'name': 'width-unit', 'value': 'cm'}, 
-                {'name': 'length-unit', 'value': 'cm'}, 
-                {'name': 'price', 'value': '30.28'}, 
-                {'name': 'note', 'value': 'XGLNGKMPQRRHGQJNCKTISSCGWLYNHSORHPKVHTHQJGPOTTWYOXZRUAYRXWNWJNVZEYOFDLBCJVLTGBUDAGBIEXXFICJUHRWFWGBMTNIVYUDACGXYKULAELBMB'}
-            ]
-        }
-        """
+
+class DeleteRequest(Request):
+    def __init__(self, requestId, widgetId, owner):
+        self.type = 'delete'
+        super().__init__(requestId, widgetId, owner)        
