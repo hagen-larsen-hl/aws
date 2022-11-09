@@ -1,7 +1,6 @@
 import json
 from widget.CustomJSONEncoder import CustomJSONEncoder
 
-
 class Widget:
     def __init__(self, id, owner, label, description, attributes):
         self.id = id
