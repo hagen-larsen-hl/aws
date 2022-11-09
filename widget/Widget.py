@@ -7,7 +7,9 @@ class Widget:
         self.owner = owner
         self.label = label
         self.description = description
-        self.otherAttributes = attributes
+        self.otherAttributes = {}
+        for attr in attributes:
+            self.otherAttributes[attr] = attributes[attr]
 
     def toJson(self):
         return json.dumps(self.__dict__, cls=CustomJSONEncoder)
@@ -20,5 +22,5 @@ class Widget:
             'description': {'S': self.description}
         }
         for attribute in self.otherAttributes:
-            item[attribute.name] = {'S': attribute.value}
+            item[attribute] = {'S': self.otherAttributes[attribute]}
         return item
