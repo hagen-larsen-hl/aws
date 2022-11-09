@@ -4,6 +4,7 @@ import json
 
 logger = logging.getLogger("consumer")
 
+
 class Processor:
     def process(self):
         pass
@@ -37,10 +38,9 @@ class S3Processor(Processor):
             widgetData = widget['Body'].read().decode('utf-8')
             widgetData = json.loads(widgetData)
             widget = WidgetFactory().updateWidget(widgetData, request.updates)
-            self.client.put_object(Body=widget, Bucket=self.bucket_name, Key=key)
+            self.client.put_object(Body=widget.toJson(), Bucket=self.bucket_name, Key=key)
             logger.info("widget " + key + " successfully updated in bucket " + self.bucket_name)
         except Exception as e:
-            raise e
             logger.warn("widget " + key + " not found in bucket " + self.bucket_name)
 
     def close(self):

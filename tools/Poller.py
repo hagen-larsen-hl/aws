@@ -3,6 +3,7 @@ import time, logging, sys
 logging.basicConfig(filename="consumer.log",format="%(asctime)s : %(message)s", encoding='utf-8', level=logging.INFO)
 logger = logging.getLogger("consumer")
 
+
 class Poller:
     def __init__(self, retriever, processor):
         self.retriever = retriever
@@ -20,7 +21,7 @@ class Poller:
             if request is not None:
                 waitCount = 0
                 self.processor.process(request)
-                print("request " + request.requestId + " processed")
+                print(request.type + " request " + request.requestId + " processed")
             else:
                 logger.info("no request available - waiting...")
                 waitCount += 1

@@ -3,6 +3,7 @@ from widget.WidgetRequestFactory import WidgetRequestFactory
 
 logger = logging.getLogger("consumer")
 
+
 class Retriever:
     def retrieve(self):
         pass

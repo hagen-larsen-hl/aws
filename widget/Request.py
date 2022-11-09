@@ -1,5 +1,4 @@
 import json
-from widget.Attribute import Attribute
 
 class Request:
     def __init__(self, requestId, widgetId, owner):
@@ -17,9 +16,9 @@ class CreateRequest(Request):
         super().__init__(requestId, widgetId, owner)
         self.label = label
         self.description = description
-        self.otherAttributes = []
+        self.otherAttributes = {}
         for attribute in otherAttributes:
-            self.otherAttributes.append(Attribute(attribute['name'], attribute['value']))
+            self.otherAttributes[attribute['name']] = attribute['value']
 
     
 class UpdateRequest(Request):

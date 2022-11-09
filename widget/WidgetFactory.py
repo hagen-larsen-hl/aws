@@ -1,7 +1,6 @@
 import logging
 from widget.Widget import Widget
-from widget.Attribute import Attribute
-import sys
+
 
 logger = logging.getLogger("consumer")
 
@@ -11,8 +10,6 @@ class WidgetFactory:
         return widget
 
     def updateWidget(self, widgetBody, updates):
-        print("widgetBody: " + str(widgetBody))
-        print("updates: " + str(updates))
         for update in updates:
             if update == 'label':
                 widgetBody['label'] = updates[update]
@@ -20,15 +17,8 @@ class WidgetFactory:
                 widgetBody['description'] = updates[update]
             else:
                 if update in widgetBody['otherAttributes']:
-                    widgetBody['otherAttributes'].append({'name': update, 'value': updates[update]})
-        
-        otherAttributes = []
-        for otherAttribute in widgetBody['otherAttributes']:
-            print("otherAttribute: " + str(otherAttribute))
-            print("otherAttribute['name']: " + str(otherAttribute[0]))
-            newAttribute = Attribute(name=otherAttribute['name'], value=otherAttribute['value'])
-            otherAttributes.append(newAttribute)
-        widget = Widget(id=widgetBody['id'], owner=widgetBody['owner'], label=widgetBody['label'], description=widgetBody['description'], attributes=otherAttributes)
+                    widgetBody['otherAttributes'][update] = updates[update]
+        widget = Widget(id=widgetBody['id'], owner=widgetBody['owner'], label=widgetBody['label'], description=widgetBody['description'], attributes=widgetBody['otherAttributes'])
 
         return widget
 
@@ -38,11 +28,11 @@ class WidgetFactory:
             'owner': item['owner']['S'],
             'label': item['label']['S'],
             'description': item['description']['S'],
-            'otherAttributes': []
+            'otherAttributes': {}
         }
         for key in item:
             if key != 'id' and key != 'owner' and key != 'label' and key != 'description':
-                data['otherAttributes'].append({'name': key, 'value': item[key]['S']})
+                data['otherAttributes'][key] = item[key]['S']
             
         return data
         

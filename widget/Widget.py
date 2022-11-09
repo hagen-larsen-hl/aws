@@ -1,6 +1,6 @@
 import json
 from widget.CustomJSONEncoder import CustomJSONEncoder
-import sys
+
 
 class Widget:
     def __init__(self, id, owner, label, description, attributes):
@@ -10,7 +10,7 @@ class Widget:
         self.description = description
         self.otherAttributes = {}
         for attr in attributes:
-            self.otherAttributes[attr.name] = attr.value
+            self.otherAttributes[attr] = attributes[attr]
 
     def toJson(self):
         return json.dumps(self.__dict__, cls=CustomJSONEncoder)
@@ -23,8 +23,5 @@ class Widget:
             'description': {'S': self.description}
         }
         for attribute in self.otherAttributes:
-            item[attribute.name] = {'S': attribute.value}
+            item[attribute] = {'S': self.otherAttributes[attribute]}
         return item
-
-    def addAttribute(self, attribute):
-        self.otherAttributes.append(attribute)

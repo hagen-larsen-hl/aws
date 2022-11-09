@@ -1,6 +1,6 @@
 import json, logging
 from widget.Request import CreateRequest, UpdateRequest
-import sys
+
 
 logger = logging.getLogger("consumer")
 
