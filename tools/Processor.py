@@ -1,6 +1,5 @@
-import boto3, logging
+import boto3, logging, json
 from widget.WidgetFactory import WidgetFactory
-import json
 
 logger = logging.getLogger("consumer")
 

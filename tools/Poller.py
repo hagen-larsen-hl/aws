@@ -1,6 +1,6 @@
 import time, logging, sys
 
-logging.basicConfig(filename="consumer.log",format="%(asctime)s : %(message)s", encoding='utf-8', level=logging.INFO)
+logging.basicConfig(filename="consumer.log",format="%(asctime)s : %(message)s", level=logging.INFO)
 logger = logging.getLogger("consumer")
 
 
