@@ -1,5 +1,6 @@
 import boto3, logging
 from widget.WidgetFactory import WidgetFactory
+import json
 
 logger = logging.getLogger("consumer")
 
@@ -33,11 +34,13 @@ class S3Processor(Processor):
         key = "widgets/" + (request.owner.replace(' ', '-') + '/' + request.widgetId).lower()
         try:
             widget = self.client.get_object(Bucket=self.bucket_name, Key=key)
-            widget = widget['Body'].read().decode('utf-8')
-            widget = WidgetFactory().updateWidget(widget, request.updates)
+            widgetData = widget['Body'].read().decode('utf-8')
+            widgetData = json.loads(widgetData)
+            widget = WidgetFactory().updateWidget(widgetData, request.updates)
             self.client.put_object(Body=widget, Bucket=self.bucket_name, Key=key)
             logger.info("widget " + key + " successfully updated in bucket " + self.bucket_name)
-        except:
+        except Exception as e:
+            raise e
             logger.warn("widget " + key + " not found in bucket " + self.bucket_name)
 
     def close(self):
@@ -51,10 +54,26 @@ class DynamoDBProcessor(Processor):
 
     def process(self, request):
         if request.type == 'create':
-            logger.info("Processing create request with DynamoDB")
+            logger.info("processing create request with DynamoDB")
             self.processCreate(request)
+        elif request.type == 'update':
+            logger.info("processing update request with DynamoDB")
+            self.processUpdate(request)
     
     def processCreate(self, request):
         widget = WidgetFactory().createWidget(request)
         self.client.put_item(TableName=self.table_name, Item=widget.toDynamoDBItem())
         logger.info("widget " + widget.id + " successfully created in DynamoDB")
+
+    def processUpdate(self, request):
+        try:
+            widget = self.client.get_item(TableName=self.table_name, Key={'id': {'S': request.widgetId}})
+            widget = WidgetFactory().parseDataFromDynamoDBItem(widget['Item'])
+            widget = WidgetFactory().updateWidget(widget, request.updates)
+            self.client.put_item(TableName=self.table_name, Item=widget.toDynamoDBItem())
+            logger.info("widget " + request.widgetId + " successfully updated in DynamoDB")
+        except:
+            logger.warn("widget " + request.widgetId + " not found in DynamoDB")
+
+    def close(self):
+        self.client.close()

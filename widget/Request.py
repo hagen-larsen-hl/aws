@@ -30,4 +30,29 @@ class UpdateRequest(Request):
         del request['requestId']
         del request['widgetId']
         del request['owner']
-        self.updates = request
+        updates = {}
+        for attribute in request:
+            if attribute != "otherAttributes":
+                updates[attribute] = request[attribute]
+        
+        if "otherAttributes" in request:
+            for attribute in request["otherAttributes"]:
+                updates[attribute['name']] = attribute['value']
+
+        self.updates = updates
+
+        """
+        {
+            'label': 'WWNQNT', 
+            'description': 'TKTNLMYTTNGMZOYSADHNPLHRHOKADAFXECCLDXLGTENAOYSMYDMVBB', 
+            'otherAttributes': [
+                {'name': 'color', 'value': 'blue'}, 
+                {'name': 'height', 'value': '784'}, 
+                {'name': 'width', 'value': '717'}, 
+                {'name': 'width-unit', 'value': 'cm'}, 
+                {'name': 'length-unit', 'value': 'cm'}, 
+                {'name': 'price', 'value': '30.28'}, 
+                {'name': 'note', 'value': 'XGLNGKMPQRRHGQJNCKTISSCGWLYNHSORHPKVHTHQJGPOTTWYOXZRUAYRXWNWJNVZEYOFDLBCJVLTGBUDAGBIEXXFICJUHRWFWGBMTNIVYUDACGXYKULAELBMB'}
+            ]
+        }
+        """

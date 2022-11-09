@@ -8,7 +8,7 @@ def main(args):
     elif args[1] == '--help' or args[1] == '-h':
         print('Usage: python consumer.py <read_type> <read_location> <write_type> <write_location>')
         print('\tread_type: s3, sqs')
-        print('\tread_location: bucket_name, queue_name')
+        print('\tread_location: bucket_name, queue_url')
         print('\twrite_type: s3, dynamodb')
         print('\twrite_location: bucket_name, table_name')
         sys.exit(0)
