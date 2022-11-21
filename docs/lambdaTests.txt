@@ -1,0 +1,75 @@
+Update Example:
+{
+  "type": "update",
+  "requestId": "602f897a-39ac-40c4-9c47-0f8c276f7978",
+  "widgetId": "7daad7d6-df63-4302-8d20-88647f153f6a",
+  "owner": "Henry Hops",
+  "label": "FXAWXET",
+  "description": "YZLQVUMNZWVLKVOLOMWITMKYOUPWYUXGMROWRKTMXHWANUQJVVIYJQEQEBIQR",
+  "otherAttributes": [
+    {
+      "name": "size-unit",
+      "value": "cm"
+    },
+    {
+      "name": "width",
+      "value": "5"
+    },
+    {
+      "name": "length",
+      "value": "371"
+    },
+    {
+      "name": "length-unit",
+      "value": "cm"
+    },
+    {
+      "name": "rating",
+      "value": "3.1"
+    },
+    {
+      "name": "price",
+      "value": "33.35"
+    },
+    {
+      "name": "vendor",
+      "value": "IEWTUXDMLHGLKZYFAXP"
+    }
+  ]
+}
+
+Create Example:
+{
+  "type": "create",
+  "requestId": "40727858-c3be-4040-8931-9035ea436c2d",
+  "widgetId": "f93eaecd-9e11-4cea-84ab-13c483ca1c6d",
+  "owner": "Henry Hops",
+  "label": "CLNN",
+  "description": "MJWURYMJZDBVPTJIFCIJFNTNHUMJYRULVLOHYJJKGFRUNULUBGHI",
+  "otherAttributes": [
+    {
+      "name": "height-unit",
+      "value": "cm"
+    },
+    {
+      "name": "length",
+      "value": "457"
+    },
+    {
+      "name": "length-unit",
+      "value": "cm"
+    },
+    {
+      "name": "note",
+      "value": "JPPBVIZWJTWXXXPBEOHLLWZULNMAQUKPRHGNFMBHTXSZWBHMGHEFKUITIQYYELDIEYAVPFLPUJVZBWMXEXPDKVHFVCXDFLUBXWQEKBWHZXSUEKYLKBOPRQAGLUIJKEADDIZNBBXDAMYQOZFCROSFUIKQNIBECBKWUPJSTDIPQFZUQYLABMCQNHFLDPILWOQNTKTIZDBPEHWTDBNKRADSHLXDVMWTCAQG"
+    }
+  ]
+}
+
+Delete Example:
+{
+  "type": "delete",
+  "requestId": "a1ceb8d3-9d35-4195-aad5-f53f8a7a5c59",
+  "widgetId": "03b55edd-5568-48a9-9fd2-3ba8f7ceccc6",
+  "owner": "Henry Hops"
+}

@@ -1,5 +1,5 @@
 import boto3, consumer, json, unittest
-from tools import Retriever, Processor, Poller
+from tools import Retriever, Processor, Poller, lambda_function
 from widget import WidgetRequestFactory, WidgetFactory, Widget
 
 class TestWidgetRequestFactory(unittest.TestCase):
@@ -285,6 +285,51 @@ class TestConsumer(unittest.TestCase):
         except:
             self.fail("consumer.main() exited unexpectedly!")
         
+class TestLambdaFunction(unittest.TestCase):
+    def setUp(self):
+        self.message = json.dumps({
+          "type": "update",
+          "requestId": "602f897a-39ac-40c4-9c47-0f8c276f7978",
+          "widgetId": "7daad7d6-df63-4302-8d20-88647f153f6a",
+          "owner": "Henry Hops",
+          "label": "FXAWXET",
+          "description": "YZLQVUMNZWVLKVOLOMWITMKYOUPWYUXGMROWRKTMXHWANUQJVVIYJQEQEBIQR",
+          "otherAttributes": [
+            {
+              "name": "size-unit",
+              "value": "cm"
+            },
+            {
+              "name": "width",
+              "value": "5"
+            },
+            {
+              "name": "length",
+              "value": "371"
+            },
+            {
+              "name": "length-unit",
+              "value": "cm"
+            },
+            {
+              "name": "rating",
+              "value": "3.1"
+            },
+            {
+              "name": "price",
+              "value": "33.35"
+            },
+            {
+              "name": "vendor",
+              "value": "IEWTUXDMLHGLKZYFAXP"
+            }
+          ]
+        })
+
+    def testLambda(self):
+        response = lambda_function.lambda_handler(self.message, {})
+        self.assertEqual(response['statusCode'], 200)
+        print(response)
 
 if __name__ == '__main__':
     unittest.main()
