@@ -1252,3 +1252,22 @@
 2022-11-21 15:42:07,115 : deleting test.json from S3 + usu-cs5260-hagen-test
 2022-11-21 15:42:07,808 : caching 1 messages
 2022-11-21 15:42:07,808 : deleting 72def4e8-a25c-4f51-aea8-e4620d75b727 from SQS at https://sqs.us-east-1.amazonaws.com/713236084914/cs5260-requests
+2022-11-21 16:21:06,446 : Found credentials in shared credentials file: ~/.aws/credentials
+2022-11-21 16:21:06,536 : Starting polling...
+2022-11-21 16:21:06,869 : no request available - waiting...
+2022-11-21 16:21:08,957 : no request available - waiting...
+2022-11-21 16:21:11,042 : no request available - waiting...
+2022-11-21 16:21:13,126 : no request available - waiting...
+2022-11-21 16:21:15,211 : no request available - waiting...
+2022-11-21 16:21:17,285 : processing create request with DynamoDB
+2022-11-21 16:21:17,607 : widget 5678 successfully created in DynamoDB
+2022-11-21 16:21:17,896 : processing update request with DynamoDB
+2022-11-21 16:21:18,028 : widget 5678 successfully updated in DynamoDB
+2022-11-21 16:21:18,094 : processing delete request with DynamoDB
+2022-11-21 16:21:18,161 : widget 5678 successfully deleted from DynamoDB
+2022-11-21 16:21:18,659 : processing create request with S3
+2022-11-21 16:21:19,077 : widget widgets/john-doe/5678 successfully created in S3 bucket usu-cs5260-hagen-test
+2022-11-21 16:21:21,014 : create request 1234 retrieved from S3
+2022-11-21 16:21:21,015 : deleting test.json from S3 + usu-cs5260-hagen-test
+2022-11-21 16:21:21,830 : caching 10 messages
+2022-11-21 16:21:21,830 : deleting 16d63e38-c7e5-401d-8d4e-281a2356932e from SQS at https://sqs.us-east-1.amazonaws.com/713236084914/cs5260-requests
